@@ -7,4 +7,4 @@ async function getRandomItem(fileDir){
     return processData[urlIndex];
 }
 
-export default getRandomItem;
+module.exports = {getRandomItem};
