@@ -1,9 +1,9 @@
-const bot = require("puppeteer")
+const puppeteer = require("puppeteer")
 
 const { getRandomItem } = require('./assets/utils/getRandomItem.js')
 
 const botConfiguration = {
-    headLess: false
+    headless: false
 }
 
 async function runBot() {
@@ -20,10 +20,9 @@ async function runBot() {
     let link = await getRandomItem('./assets/json/list-of-links.json');
     console.log("Link:", link);
 
-    const chromeBrowser = await bot.launch(botConfiguration);
-    const chromeBrowserPage = await chromeBrowser.newPage()
-    // chromeBrowserPage.userAgent(userAgent)
-    chromeBrowserPage.goto("https://google.com");
+    const browser = await puppeteer.launch(botConfiguration);
+    const page = await browser.newPage()
+    page.goto(link);
 
 }
 
