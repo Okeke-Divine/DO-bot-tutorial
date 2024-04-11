@@ -16,8 +16,15 @@ async function runBot() {
     // get a proxy
     let proxy = await getRandomItem('./assets/json/list-of-proxies.json');
     console.log("Proxy:", proxy);
+    // get a link
+    let link = await getRandomItem('./assets/json/list-of-links.json');
+    console.log("Link:", link);
 
-    // const browser = await bot.launch(botConfiguration);
+    const chromeBrowser = await bot.launch(botConfiguration);
+    const chromeBrowserPage = await chromeBrowser.newPage()
+    // chromeBrowserPage.userAgent(userAgent)
+    chromeBrowserPage.goto("https://google.com");
+
 }
 
 runBot()
