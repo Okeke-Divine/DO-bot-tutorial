@@ -1,0 +1,7 @@
+gt.bat
+gp.bat
+
+node_modules
+
+venv
+.env
