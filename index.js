@@ -17,12 +17,13 @@ async function runBot() {
     let proxy = await getRandomItem('./assets/json/list-of-proxies.json');
     console.log("Proxy:", proxy);
     // get a link
-    let link = await getRandomItem('./assets/json/list-of-links.json');
-    console.log("Link:", link);
+    let url = await getRandomItem('./assets/json/list-of-links.json');
+    console.log("Url:", url);
 
     const browser = await puppeteer.launch(botConfiguration);
     const page = await browser.newPage()
-    page.goto(link);
+    page.goto(url);
+
 
 }
 
